@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { languages } from "../data/languages";
+// import { languages } from "../data/languages";
 import heroImg from "../assets/hero_img.jpg";
 import copyImg from "../assets/Copy.svg";
 import volumeImg from "../assets/sound_max_fill.svg";
@@ -13,6 +13,7 @@ const Home = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [langFrom, setLangFrom] = useState("en");
   const [langTo, setLangTo] = useState("fr-FR");
+  const [wordCount,setWordCount] = useState(0);
 
   const [translate, setTranslate] = useState(false);
 
@@ -31,10 +32,6 @@ const Home = () => {
     }
   };
 
-  //   const languageName = data?.matches.target
-
-  // Set language first before translations
-
   const detectLanguage = () => {};
 
   // const languageEnglishName = languages.find(
@@ -51,11 +48,9 @@ const Home = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data?.responseData.translatedText);
+        // console.log(data?.responseData.translatedText);
         // console.log("selectd language ",data.matches[0].target)
-        setSelectedLanguage(data.matches[0].target);
-        setTranslation(data?.responseData.translatedText);
-        // setText(data?.responseData.translatedText)
+        setText(data?.responseData.translatedText)
       })
       .catch((error) => {
         console.log(error);
@@ -76,9 +71,9 @@ const Home = () => {
       <img className="hero-img" src={heroImg} />
       <div className="translate-box translate-box-left">
         <div className="translate-box--menu">
-          {/* <button className="detect-btn" onClick={detectLanguage}>
-            Detect language
-          </button> */}
+          <button className="detect-btn" onClick={detectLanguage}>
+            Select language
+          </button>
           <ul className="languages">
             <li
               style={{
@@ -141,7 +136,7 @@ const Home = () => {
       <div className="translate-box translate-box-right">
         <div className="translate-box--menu">
           <button className="detect-btn" onClick={detectLanguage}>
-            Choose language
+            Choose translation
           </button>
           <ul className="languages">
             <li
@@ -159,6 +154,7 @@ const Home = () => {
               onClick={() => setLangTo("fr-FR")}
             >
               French
+
             </li>
             <li
               style={{
@@ -174,7 +170,7 @@ const Home = () => {
           </ul>
         </div>
         <div className="translate-box-input">
-          <div className="translate-box-translation">{translation}</div>
+          <div className="translate-box-translation">{text}</div>
         </div>
         <div className="translate-box-input--translate">
           <div className="icons icons-right">

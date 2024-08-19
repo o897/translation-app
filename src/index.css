@@ -45,7 +45,7 @@ h4 {
 }
 
 .translate-box {
-  width: 700px;
+  width: 800px;
   height: 400px;
   border: 0.3px solid #b8b8b8cc;
   position: absolute;
@@ -79,12 +79,12 @@ textarea {
 }
 
 .translate-box-left {
-  left: 10%;
+  left: 5%;
   background-color: #394150;
 }
 
 .translate-box-right {
-  right: 10%;
+  right: 5%;
   background-color: #121826cc;
 }
 
@@ -99,7 +99,6 @@ textarea {
 .translate-box--menu ul {
   display: flex;
   gap: 40px;
-  padding-left: 0;
 }
 
 .translate-box-input--translate {
@@ -179,4 +178,5 @@ textarea {
   height: 41px;
   color: #fff;
   border: none;
+  margin-right: 5px;
 }
